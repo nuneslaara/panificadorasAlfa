@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="panificadorasAlfa" id="Project_9606c5" html="y" template="Default" database="MySql" >
+	<schema name="panificadorasalfa" schemaname="panificadorasalfa" />
+	<layout id="Layout_9606c5" name="panificadorasAlfa" show_relation_columns="y" >
+		<entity schema="panificadoraalfa" name="produto" color="b2cdf7" x="45" y="45" />
+		<entity schema="panificadoraalfa" name="fornecedor" color="b2cdf7" x="270" y="60" />
+	</layout>
+</project>
