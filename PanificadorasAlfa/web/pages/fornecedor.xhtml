@@ -22,9 +22,9 @@
                 <p:column headerText="Código" sortBy="#{item.id_fornecedor}" filterBy="#{item.id_fornecedor}">
                     <h:outputText value="#{item.id_fornecedor}"/>
                 </p:column>
-                <p:column headerText="Razão Social" sortBy="#{item.razaoSocial}" 
-                          filterBy="#{item.razaoSocial}">
-                    <h:outputText value="#{item.razaoSocial}"/>
+                <p:column headerText="Razão Social" sortBy="#{item.razao_social}" 
+                          filterBy="#{item.razao_social}">
+                    <h:outputText value="#{item.razao_social}"/>
                 </p:column>
                 <p:column headerText="Opções" >
                     <p:commandButton icon="ui-icon-trash" 
@@ -60,7 +60,7 @@
                 <h:panelGrid columns="2" id="pnlCadastraFornecedor">
                     <p:outputLabel value="Razão social"/>
                     <p:inputText size="30" maxlength="50"
-                                 value="#{MBFornecedor.fornecedor.razaoSocial}"/>                    
+                                 value="#{MBFornecedor.fornecedor.razao_social}"/>                    
                 </h:panelGrid>
                 <h:panelGrid columns="2">
                     <p:commandButton value="Gravar" 
@@ -81,7 +81,7 @@
                     <p:outputLabel value="Código: "/>
                     <p:outputLabel value="#{MBFornecedor.fornecedor.id_fornecedor}"/>
                     <p:outputLabel value="Razão Social: "/>
-                    <p:outputLabel value="#{MBFornecedor.fornecedor.razaoSocial}"/>
+                    <p:outputLabel value="#{MBFornecedor.fornecedor.razao_social}"/>
                 </h:panelGrid>
                 <h:panelGrid columns="2">
                     <p:commandButton value="Excluir" 
@@ -100,9 +100,9 @@
             <h:form id="frmEditarFornecedor">
                 <h:panelGrid columns="2" id="pnlEditaFornecedor">
                     <p:outputLabel value="ID"/>
-                    <p:outputLabel value="#{MBFornecedor.Fornecedor.id_fornecedor}"/>                    
+                    <p:outputLabel value="#{MBFornecedor.fornecedor.id_fornecedor}"/>                    
                     <p:outputLabel value="Razão Social: "/>                    
-                    <p:inputText value="#{MBFornecedor.Fornecedor.razaoSocial}"
+                    <p:inputText value="#{MBFornecedor.fornecedor.razao_social}"
                                  size="30" maxlength="50"/>
                 </h:panelGrid>
                 <h:panelGrid columns="2">

@@ -1,5 +1,5 @@
 
-package Factory;
+package br.com.panificadora.factory;
 
 import java.sql.Connection;
 import java.sql.SQLException;

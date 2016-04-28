@@ -1,7 +1,7 @@
-package model;
+package br.com.panificadora.model;
 
 
-public class DadosProduto extends DadosFornecedor {
+public class Produto extends Fornecedor {
     private int id_produto, cod_fornecedor, qtd;
     private String nome;
     private float preco;

@@ -1,16 +1,16 @@
 
-package DAO;
+package br.com.panificadora.dao;
 
-import Factory.ConnectionFactory;
+import br.com.panificadora.factory.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import model.DadosFornecedor;
+import br.com.panificadora.model.Fornecedor;
 
-public class fornecedorDao {
-    public void salvar(DadosFornecedor d)
+public class FornecedorDAO {
+    public void salvar(Fornecedor d)
             throws ClassNotFoundException, SQLException{
         String sql = "INSERT INTO fornecedor ( razao_social) VALUES(?)";
         
@@ -22,7 +22,7 @@ public class fornecedorDao {
         stmt.close();
         
     }
-    public void excluir(DadosFornecedor d)
+    public void excluir(Fornecedor d)
             throws ClassNotFoundException, SQLException{
         String sql = "DELETE FROM fornecedor WHERE id_fornecedor = ?";
         
@@ -33,7 +33,7 @@ public class fornecedorDao {
         stmt.execute();
         stmt.close();
     }
-    public void editar(DadosFornecedor d)throws ClassNotFoundException,SQLException{
+    public void editar(Fornecedor d)throws ClassNotFoundException,SQLException{
         String sql= "UPDATE fornecedor SET Razao_social = ? WHERE id_fornecedor = ?";
         
         Connection connection = ConnectionFactory.getConnection();
@@ -44,7 +44,7 @@ public class fornecedorDao {
         stmt.execute();
         stmt.close();
 }
-    public DadosFornecedor pesquisar(DadosFornecedor d)throws ClassNotFoundException, SQLException{
+    public Fornecedor pesquisar(Fornecedor d)throws ClassNotFoundException, SQLException{
         String sql = "SELECT * FROM fornecedor WHERE id_fornecedor = ?";
         
         Connection connection = ConnectionFactory.getConnection();
@@ -54,16 +54,16 @@ public class fornecedorDao {
         stmt.setInt(1, d.getId_fornecedor());
         
         ResultSet rs = stmt.executeQuery();
-        DadosFornecedor retorno = null;
+        Fornecedor retorno = null;
            if(rs.next()){
-            retorno = new DadosFornecedor();
+            retorno = new Fornecedor();
             retorno.setId_fornecedor(rs.getInt("Id_fornecedor"));
             retorno.setRazao_social(rs.getString("Razao_social"));
         }
         return retorno;
 
 }
-     public ArrayList<DadosFornecedor> lista()throws SQLException, ClassNotFoundException{
+     public ArrayList<Fornecedor> lista()throws SQLException, ClassNotFoundException{
         String sql = "SELECT * FROM fornecedor";
         
         Connection connection = ConnectionFactory.getConnection();
@@ -72,10 +72,10 @@ public class fornecedorDao {
         
         ResultSet rs = stmt.executeQuery();
         
-        ArrayList<DadosFornecedor> lista = new ArrayList<DadosFornecedor>();
+        ArrayList<Fornecedor> lista = new ArrayList<Fornecedor>();
         
         while(rs.next()){
-            DadosFornecedor e = new DadosFornecedor();
+            Fornecedor e = new Fornecedor();
             e.setId_fornecedor(rs.getInt("id_fornecedor"));
             e.setRazao_social(rs.getString("razao_social"));            
             lista.add(e);

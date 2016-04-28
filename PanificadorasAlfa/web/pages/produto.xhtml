@@ -23,9 +23,9 @@
                 <p:column headerText="Código" sortBy="#{item.id_produto}" filterBy="#{item.id_produto}">
                     <h:outputText value="#{item.id_produto}"/>
                 </p:column>
-                <p:column headerText="Descrição" sortBy="#{item.descricao}" 
-                          filterBy="#{item.descricao}">
-                    <h:outputText value="#{item.descricao}"/>
+                <p:column headerText="Nome" sortBy="#{item.nome}" 
+                          filterBy="#{item.nome}">
+                    <h:outputText value="#{item.nome}"/>
                 </p:column>
                 <p:column headerText="Quantidade" sortBy="#{item.qtd}" filterBy="#{item.qtd}">
                     <h:outputText value="#{item.qtd}"/>
@@ -34,9 +34,9 @@
                           filterBy="#{item.preco}">
                     <h:outputText value="#{item.preco}"/>
                 </p:column>
-                 <p:column headerText="Razão Social" sortBy="#{item.razaoSocial}" 
-                          filterBy="#{item.razaoSocial}">
-                    <h:outputText value="#{item.razaoSocial}"/>
+                <p:column headerText="Razão Social" sortBy="#{item.razao_social}" 
+                          filterBy="#{item.razao_social}">
+                    <h:outputText value="#{item.razao_social}"/>
                 </p:column>
               
                 <p:column headerText="Opções" >
@@ -71,9 +71,9 @@
                   appendTo="@(body)">
             <h:form id="frmCadastraProduto">
                 <h:panelGrid columns="2" id="pnlCadastraProduto">
-                    <p:outputLabel value="Descrição"/>
+                    <p:outputLabel value="Nome"/>
                     <p:inputText size="30" maxlength="50"
-                                 value="#{MBProduto.produto.descricao}"/>                    
+                                 value="#{MBProduto.produto.nome}"/>                    
                     <p:outputLabel value="Quantidade"/>
                     <p:inputText size="30" maxlength="50"
                                  value="#{MBProduto.produto.qtd}"/>                    
@@ -82,7 +82,7 @@
                                  value="#{MBProduto.produto.preco}"/>   
                      <p:outputLabel value="ID Editora"/>
                     <p:inputText size="30" maxlength="50"
-                                 value="#{MBProduto.produto.cod_editora}"/> 
+                                 value="#{MBProduto.produto.cod_fornecedor}"/> 
                              
                 </h:panelGrid>
                 <h:panelGrid columns="2">
@@ -103,8 +103,8 @@
                 <h:panelGrid columns="2" id="pnlExcluiProduto">
                     <p:outputLabel value="Código: "/>
                     <p:outputLabel value="#{MBProduto.produto.id_produto}"/>
-                    <p:outputLabel value="Descrição: "/>
-                    <p:outputLabel value="#{MBProduto.produto.descricao}"/>
+                    <p:outputLabel value="Nome: "/>
+                    <p:outputLabel value="#{MBProduto.produto.nome}"/>
                     <p:outputLabel value="Quantidade: "/>
                     <p:outputLabel value="#{MBProduto.produto.qtd}"/>
                     <p:outputLabel value="Preço: "/>
@@ -129,14 +129,14 @@
                     <p:outputLabel value="Código: "/>
                     <p:outputLabel value="#{MBProduto.produto.id_produto}"/>
                     <p:outputLabel value="Descrição: "/>
-                    <p:inputText size="30" maxlength="50" value="#{MBProduto.produto.descricao}"/>
+                    <p:inputText size="30" maxlength="50" value="#{MBProduto.produto.nome}"/>
                     <p:outputLabel value="Quantidade: "/>
                     <p:inputText size="30" maxlength="50" value="#{MBProduto.produto.qtd}"/>
                     <p:outputLabel value="Preço: "/>
                     <p:inputText size="30" maxlength="50" value="#{MBProduto.produto.preco}"/>
                      <p:outputLabel value="ID Editora"/>
                     <p:inputText size="30" maxlength="50"
-                                 value="#{MBProduto.produto.cod_editora}"/> 
+                                 value="#{MBProduto.produto.cod_fornecedor}"/> 
                 </h:panelGrid>
                 <h:panelGrid columns="2">
                     <p:commandButton value="Editar" 

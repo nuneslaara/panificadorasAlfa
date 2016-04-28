@@ -1,7 +1,7 @@
-package model;
+package br.com.panificadora.model;
 
 
-public class DadosFornecedor {
+public class Fornecedor {
     private int id_fornecedor;
     private String razao_social;
 

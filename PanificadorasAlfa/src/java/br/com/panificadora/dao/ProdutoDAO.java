@@ -1,17 +1,17 @@
 
-package DAO;
+package br.com.panificadora.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import model.DadosProduto;
-import Factory.ConnectionFactory;
+import br.com.panificadora.model.Produto;
+import br.com.panificadora.factory.ConnectionFactory;
 
 
-public class ProdutoDao {
-     public void salvar(DadosProduto d)
+public class ProdutoDAO {
+     public void salvar(Produto d)
             throws ClassNotFoundException, SQLException{
         String sql = "INSERT INTO produto (nome,qtd,preco,cod_fornecedor) VALUES(?,?,?,?)";
         
@@ -27,7 +27,7 @@ public class ProdutoDao {
    }
         
     
-public void excluir(DadosProduto d) throws ClassNotFoundException, SQLException{
+public void excluir(Produto d) throws ClassNotFoundException, SQLException{
         String sql = "DELETE FROM produto WHERE id_produto = ?";
         
         Connection connection = ConnectionFactory.getConnection();
@@ -37,7 +37,7 @@ public void excluir(DadosProduto d) throws ClassNotFoundException, SQLException{
         stmt.execute();
         stmt.close();
     }
- public void editar(DadosProduto d)throws ClassNotFoundException,SQLException{
+ public void editar(Produto d)throws ClassNotFoundException,SQLException{
         String sql= "UPDATE produto SET nome = ?, qtd = ?, preco = ?,cod_editora=? WHERE id_produto = ?";
         
         Connection connection = ConnectionFactory.getConnection();
@@ -51,7 +51,7 @@ public void excluir(DadosProduto d) throws ClassNotFoundException, SQLException{
         stmt.execute();
         stmt.close();
 }
- public ArrayList<DadosProduto> lista()throws SQLException, ClassNotFoundException{
+ public ArrayList<Produto> lista()throws SQLException, ClassNotFoundException{
         String sql = "select produto.id_produto, produto.nome, produto.qtd, produto.preco,"
                 + " fornecedor.razao_social from produto "
                 + "inner join editora on fornecedor.id_fornecedor = produto.cod_fornecedor";
@@ -62,10 +62,10 @@ public void excluir(DadosProduto d) throws ClassNotFoundException, SQLException{
         
         ResultSet rs = stmt.executeQuery();
         
-        ArrayList<DadosProduto> lista = new ArrayList<DadosProduto>();
+        ArrayList<Produto> lista = new ArrayList<Produto>();
         
         while(rs.next()){
-            DadosProduto e = new DadosProduto();
+            Produto e = new Produto();
             e.setId_produto(rs.getInt("id_produto"));
             e.setNome(rs.getString("nome"));
             e.setQtd(rs.getInt("qtd"));
