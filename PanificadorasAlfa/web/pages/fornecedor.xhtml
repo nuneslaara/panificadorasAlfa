@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"   
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      template="/templates/modelo_template.xhtml">
+    
+    <ui:define name="menu">
+        <ui:include src="../includes/menu_principal.xhtml"/>
+       
+    </ui:define>
+    
+    <ui:define name="conteudo">
+        <h:form id="frmFornecedor">
+            <p:dataTable emptyMessage="Nenhum fornecedor cadastrada" value="#{MBFornecedor.itens}"
+                         var="item" paginator="true" rows="5" id="tbFornecedor">
+                <f:facet name="header">
+                    Fornecedor - Listagem
+                </f:facet>
+                <p:column headerText="Código" sortBy="#{item.id_fornecedor}" filterBy="#{item.id_fornecedor}">
+                    <h:outputText value="#{item.id_fornecedor}"/>
+                </p:column>
+                <p:column headerText="Razão Social" sortBy="#{item.razaoSocial}" 
+                          filterBy="#{item.razaoSocial}">
+                    <h:outputText value="#{item.razaoSocial}"/>
+                </p:column>
+                <p:column headerText="Opções" >
+                    <p:commandButton icon="ui-icon-trash" 
+                                     oncomplete="PF('dlgEdExcluir').show();"
+                                     update=":frmExcluiFornecedor:pnlExcluiFornecedor
+                                     :msgGlobal">
+                        <f:setPropertyActionListener target="#{MBFornecedor.fornecedor}"
+                                                     value="#{item}"/>
+                    </p:commandButton>
+                    <p:commandButton icon="ui-icon-pencil" 
+                                     oncomplete="PF('dlgEdEditar').show();"
+                                     update=":frmEditarFornecedor:pnlEditaFornecedor
+                                     :msgGlobal">
+                          <f:setPropertyActionListener target="#{MBFornecedor.fornecedor}"
+                                                     value="#{item}"/>
+                        
+                    </p:commandButton>
+                </p:column>
+                <f:facet name="footer">
+                    <p:commandButton value="Novo" 
+                                     actionListener="#{MBFornecedor.prepararFornecedor()}"
+                                     oncomplete="PF('dlgEdNovo').show();"
+                                     update=":frmCadastraFornecedor:pnlCadastraFornecedor
+                                     :msgGlobal"/>
+                </f:facet>
+            </p:dataTable> 
+        </h:form>
+        
+        <p:dialog widgetVar="dlgEdNovo" closable="false" draggable="false" 
+                  resizable="false" header="Novo Fornecedor" modal="true" 
+                  appendTo="@(body)">
+            <h:form id="frmCadastraFornecedor">
+                <h:panelGrid columns="2" id="pnlCadastraFornecedor">
+                    <p:outputLabel value="Razão social"/>
+                    <p:inputText size="30" maxlength="50"
+                                 value="#{MBFornecedor.fornecedor.razaoSocial}"/>                    
+                </h:panelGrid>
+                <h:panelGrid columns="2">
+                    <p:commandButton value="Gravar" 
+                                     actionListener="#{MBFornecedor.novoFornecedor()}"
+                                     oncomplete="PF('dlgEdNovo').hide();"
+                                     update=":frmFornecedor:tbFornecedor
+                                     :msgGlobal"/>
+                    <p:commandButton value="Cancelar" onclick="PF('dlgEdNovo').hide();"/>
+                </h:panelGrid>
+            </h:form>          
+        </p:dialog>
+        
+        <p:dialog widgetVar="dlgEdExcluir" closable="false" draggable="false" 
+                  resizable="false" header="Excluir Fornecedor" modal="true" 
+                  appendTo="@(body)">
+            <h:form id="frmExcluiFornecedor">
+                <h:panelGrid columns="2" id="pnlExcluiFornecedor">
+                    <p:outputLabel value="Código: "/>
+                    <p:outputLabel value="#{MBFornecedor.fornecedor.id_fornecedor}"/>
+                    <p:outputLabel value="Razão Social: "/>
+                    <p:outputLabel value="#{MBFornecedor.fornecedor.razaoSocial}"/>
+                </h:panelGrid>
+                <h:panelGrid columns="2">
+                    <p:commandButton value="Excluir" 
+                                     actionListener="#{MBFornecedor.excluiFornecedor()}"
+                                     oncomplete="PF('dlgEdExcluir').hide();"
+                                     update=":frmFornecedor:tbFornecedor
+                                     :msgGlobal"/>
+                    <p:commandButton value="Cancelar" onclick="PF('dlgEdExcluir').hide();"/>
+                </h:panelGrid>
+            </h:form>          
+        </p:dialog>
+        
+        <p:dialog widgetVar="dlgEdEditar" closable="false" draggable="false" 
+                  resizable="false" header="Alterar Fornecedor" modal="true" 
+                  appendTo="@(body)">
+            <h:form id="frmEditarFornecedor">
+                <h:panelGrid columns="2" id="pnlEditaFornecedor">
+                    <p:outputLabel value="ID"/>
+                    <p:outputLabel value="#{MBFornecedor.Fornecedor.id_fornecedor}"/>                    
+                    <p:outputLabel value="Razão Social: "/>                    
+                    <p:inputText value="#{MBFornecedor.Fornecedor.razaoSocial}"
+                                 size="30" maxlength="50"/>
+                </h:panelGrid>
+                <h:panelGrid columns="2">
+                    <p:commandButton value="Editar" 
+                                     actionListener="#{MBFornecedor.editaFornecedor()}"
+                                     oncomplete="PF('dlgEdEditar').hide();"
+                                     update=":frmFornecedor:tbFornecedor
+                                     :msgGlobal"/>
+                    <p:commandButton value="Cancelar" onclick="PF('dlgEdEditar').hide();"/>
+                </h:panelGrid>
+            </h:form>          
+        </p:dialog>
+    </ui:define>
+</ui:composition>
