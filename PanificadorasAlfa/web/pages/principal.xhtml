@@ -13,7 +13,18 @@
     </ui:define>
     
     <ui:define name="conteudo">
-        
+        <h:head>
+            <title>Panificadora Alfa</title>
+            
+        </h:head>
+        <h:body>
+            <h1>Panificadora Alfa</h1>
+            <p:galleria value="#{imagesView.images}" var="image" panelWidth="500" panelHeight="313" showCaption="true">
+            <p:graphicImage name="../images/pao/#{image}" alt="Image Description for #{image}" title="#{image}"/>
+        </p:galleria>
+        </h:body>
     </ui:define>
     
+        
+   
 </ui:composition>
