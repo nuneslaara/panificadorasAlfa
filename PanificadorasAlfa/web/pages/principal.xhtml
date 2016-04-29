@@ -17,14 +17,19 @@
             <title>Panificadora Alfa</title>
             
         </h:head>
-        <h:body>
+        <h:body id="conteudo">
             <h1>Panificadora Alfa</h1>
-            <p:galleria value="#{imagesView.images}" var="image" panelWidth="500" panelHeight="313" showCaption="true">
-            <p:graphicImage name="../images/pao/#{image}" alt="Image Description for #{image}" title="#{image}"/>
+        <p:galleria id="conteudo2" value="#{imagesView.images}" var="image" panelWidth="2000" panelHeight="500" showCaption="true">
+            <p:graphicImage name="images/#{image}" alt="Seu café da manhã mais divertido!" title="#{image}"/>
         </p:galleria>
+            
+            <p id="texto">
+                
+                O segredo é simples: fazer com carinho.
+                <br/>
+                A dedicação em todas as etapas de produção, a criatividade nas receitas e o cuidado em cada detalhe é o jeito Alfa de fazer, mas o fermento que faz essa receita dar certo é a satisfação em fazer você feliz. 
+                <br/>Por trás de cada produto, existe uma longa história de tradição em qualidade, feita para agradar quem a gente mais gosta.
+            </p>
         </h:body>
     </ui:define>
-    
-        
-   
 </ui:composition>
