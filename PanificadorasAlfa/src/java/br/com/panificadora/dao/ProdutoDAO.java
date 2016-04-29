@@ -38,7 +38,7 @@ public void excluir(Produto d) throws ClassNotFoundException, SQLException{
         stmt.close();
     }
  public void editar(Produto d)throws ClassNotFoundException,SQLException{
-        String sql= "UPDATE produto SET nome = ?, qtd = ?, preco = ?,cod_editora=? WHERE id_produto = ?";
+        String sql= "UPDATE produto SET nome = ?, qtd = ?, preco = ?,cod_fornecedor=? WHERE id_produto = ?";
         
         Connection connection = ConnectionFactory.getConnection();
         
@@ -54,7 +54,7 @@ public void excluir(Produto d) throws ClassNotFoundException, SQLException{
  public ArrayList<Produto> lista()throws SQLException, ClassNotFoundException{
         String sql = "select produto.id_produto, produto.nome, produto.qtd, produto.preco,"
                 + " fornecedor.razao_social from produto "
-                + "inner join editora on fornecedor.id_fornecedor = produto.cod_fornecedor";
+                + "inner join fornecedor on fornecedor.id_fornecedor = produto.cod_fornecedor";
         
         Connection connection = ConnectionFactory.getConnection();
         

@@ -34,7 +34,7 @@ public class FornecedorDAO {
         stmt.close();
     }
     public void editar(Fornecedor d)throws ClassNotFoundException,SQLException{
-        String sql= "UPDATE fornecedor SET Razao_social = ? WHERE id_fornecedor = ?";
+        String sql= "UPDATE fornecedor SET razao_social = ? WHERE id_fornecedor = ?";
         
         Connection connection = ConnectionFactory.getConnection();
         
