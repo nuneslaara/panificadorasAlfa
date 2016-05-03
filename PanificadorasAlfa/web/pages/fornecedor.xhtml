@@ -22,7 +22,7 @@
                 <p:column headerText="Código" sortBy="#{item.id_fornecedor}" filterBy="#{item.id_fornecedor}">
                     <h:outputText value="#{item.id_fornecedor}"/>
                 </p:column>
-                <p:column headerText="Razão Social" sortBy="#{item.razao_social}" 
+                <p:column headerText="Fornecedor" sortBy="#{item.razao_social}" 
                           filterBy="#{item.razao_social}">
                     <h:outputText value="#{item.razao_social}"/>
                 </p:column>
@@ -80,7 +80,7 @@
                 <h:panelGrid columns="2" id="pnlExcluiFornecedor">
                     <p:outputLabel value="Código: "/>
                     <p:outputLabel value="#{MBFornecedor.fornecedor.id_fornecedor}"/>
-                    <p:outputLabel value="Razão Social: "/>
+                    <p:outputLabel value="Fornecedor: "/>
                     <p:outputLabel value="#{MBFornecedor.fornecedor.razao_social}"/>
                 </h:panelGrid>
                 <h:panelGrid columns="2">
@@ -101,7 +101,7 @@
                 <h:panelGrid columns="2" id="pnlEditaFornecedor">
                     <p:outputLabel value="ID"/>
                     <p:outputLabel value="#{MBFornecedor.fornecedor.id_fornecedor}"/>                    
-                    <p:outputLabel value="Razão Social: "/>                    
+                    <p:outputLabel value="Fornecedor: "/>                    
                     <p:inputText value="#{MBFornecedor.fornecedor.razao_social}"
                                  size="30" maxlength="50"/>
                 </h:panelGrid>
